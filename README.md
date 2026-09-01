@@ -15,6 +15,7 @@ The Go backend uses a simplified two-layer architecture:
 ## Tech Stack & Infrastructure
 
 - **API Contract:** OpenAPI 3.0+ YAML specification (single source of truth)
+- **CI/CD:** GitHub Actions (linting, tests, automated deployment)
 - **Backend:** Go (Golang)
   - Code Generator: [`oapi-codegen`](https://github.com/oapi-codegen/oapi-codegen) (generates Go types and Chi server routing)
   - Request Validation: [`kin-openapi` Chi middleware](https://github.com/oapi-codegen/oapi-codegen/tree/main/pkg/middleware) (automatic schema & payload validation)
@@ -25,7 +26,7 @@ The Go backend uses a simplified two-layer architecture:
   - Transactional Email: [`resend-go/v2`](https://github.com/resend/resend-go)
   - Anti-Abuse: Google reCAPTCHA v3
   - Database Driver: [`go.mongodb.org/mongo-driver/v2`](https://go.mongodb.org/mongo-driver/v2)
-  - Deployment: GCP Cloud Run as `hammergen`
+  - Deployment: GCP Cloud Run as `hammergen` via GitHub Actions
 - **Frontend:** Vue 3 + TypeScript
   - Bundler: [Vite](https://vitejs.dev/)
   - Styling: [Tailwind CSS v4](https://tailwindcss.com/)
@@ -35,5 +36,39 @@ The Go backend uses a simplified two-layer architecture:
   - Code Generator: [`openapi-typescript`](https://openapi-ts.dev/) (generates TypeScript interfaces and typed fetch clients)
   - Captcha: [`vue-recaptcha-v3`](https://github.com/AStarStartup/vue-recaptcha-v3)
   - Testing: [Vitest](https://vitest.dev/)
-  - Deployment: Cloudflare Pages
+  - Deployment: Cloudflare Pages via GitHub Actions
 - **Database:** MongoDB (hosted in a GCP cluster for low-latency access)
+
+## Project Structure
+
+```
+5e-hammergen/
+├── .github/
+│   └── workflows/           # GitHub Actions CI/CD pipelines
+├── Makefile                 # Build, generation, and dev automation
+├── docker-compose.yaml      # Local MongoDB container
+├── openapi/
+│   ├── openapi.yaml         # Single source of truth API specification
+│   └── oapi-codegen.yaml    # Go generator configuration
+├── backend/
+│   ├── cmd/server/main.go
+│   ├── internal/
+│   │   ├── web/             # Chi router, oapi handlers, auth, middleware
+│   │   └── service/         # Business logic with MongoDB operations
+│   └── go.mod
+└── frontend/
+    ├── src/
+    │   ├── api/             # Generated OpenAPI types & fetch client
+    │   ├── components/
+    │   ├── views/
+    │   └── main.ts
+    ├── package.json
+    └── vite.config.ts
+```
+
+## Local Development
+
+- **Start Database:** `docker compose up -d`
+- **Generate API Code:** `make gen` (runs `oapi-codegen` and `openapi-typescript`)
+- **Run Backend:** `make dev-backend`
+- **Run Frontend:** `make dev-frontend`
