@@ -9,7 +9,7 @@
 ## Architecture
 
 The Go backend uses a simplified two-layer architecture:
-1. **Web Layer:** HTTP routing via Chi, OpenAPI contract enforcement via `oapi-codegen`, authentication (JWT/OAuth2), reCAPTCHA verification, and response serialization.
+1. **Web Layer:** HTTP routing via Chi, OpenAPI request validation via `kin-openapi`, contract enforcement via `oapi-codegen`, authentication (JWT/OAuth2), reCAPTCHA verification, and response serialization.
 2. **Service Layer:** Business domain logic with embedded MongoDB data access, eliminating unnecessary database abstraction interfaces.
 
 ## Tech Stack & Infrastructure
@@ -17,6 +17,7 @@ The Go backend uses a simplified two-layer architecture:
 - **API Contract:** OpenAPI 3.0+ YAML specification (single source of truth)
 - **Backend:** Go (Golang)
   - Code Generator: [`oapi-codegen`](https://github.com/oapi-codegen/oapi-codegen) (generates Go types and Chi server routing)
+  - Request Validation: [`kin-openapi` Chi middleware](https://github.com/oapi-codegen/oapi-codegen/tree/main/pkg/middleware) (automatic schema & payload validation)
   - Router: [`go-chi/chi/v5`](https://github.com/go-chi/chi)
   - CORS: [`rs/cors`](https://github.com/rs/cors)
   - JWT Auth: [`golang-jwt/jwt/v5`](https://github.com/golang-jwt/jwt)
