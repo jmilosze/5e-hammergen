@@ -29,6 +29,7 @@ The Go backend uses a simplified two-layer architecture:
 - **Frontend:** Vue 3 + TypeScript
   - Bundler: [Vite](https://vitejs.dev/)
   - Styling: [Tailwind CSS v4](https://tailwindcss.com/)
+  - UI Components (Optional): [`shadcn-vue`](https://www.shadcn-vue.com/) (accessible Tailwind primitives)
   - Routing: [`vue-router`](https://router.vuejs.org/)
   - Icons: [`@iconify/vue`](https://iconify.design/)
   - Code Generator: [`openapi-typescript`](https://openapi-ts.dev/) (generates TypeScript interfaces and typed fetch clients)
