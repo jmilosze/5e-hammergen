@@ -8,3 +8,7 @@ Details are located in the `README.md` file.
 # Communication & Documentation Style
 - Be brief when writing comments and descriptions.
 - Every sentence must contain substantive information without repeating points already stated.
+
+# Operational Rules
+- Always re-read existing files (especially `README.md`) before making any edits or modifications.
+- Do not re-add `## Project Structure` or `## Local Development` sections to `README.md`.
