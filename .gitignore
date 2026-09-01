@@ -1,0 +1,87 @@
+# JetBrains IDEs
+.idea/
+*.iml
+*.iws
+*.ipr
+out/
+cmake-build-*/
+
+# VS Code (keep shared configs if any, ignore user state)
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+*.code-workspace
+
+# OS and system files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+*~
+*.swp
+*.swo
+
+# Go / Golang
+bin/
+dist/
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+*.test
+*.out
+go.work
+go.work.sum
+vendor/
+
+# TypeScript / JavaScript / Node
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+.pnpm-debug.log*
+*.tsbuildinfo
+.npm
+.eslintcache
+.stylelintcache
+
+# Build outputs
+build/
+dist/
+.vite/
+.next/
+.nuxt/
+.cache/
+coverage/
+*.lcov
+
+# Environment and secrets
+.env
+.env.local
+.env.*.local
+*.pem
+*.key
+*.cert
+*.crt
+config.local.json
+secrets/
+
+# Firebase / Cloud deployment
+.firebase/
+.firebaserc
+firestore-debug.log*
+ui-debug.log*
+
+# Temporary files & logs
+tmp/
+temp/
+logs/
+*.log
