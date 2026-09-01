@@ -1,6 +1,6 @@
 # 5e-hammergen
 
-A modern Warhammer Fantasy character generator and campaign toolkit.
+5th ed. Warhammer Fantasy Roleplay character generator and campaign toolkit.
 
 ## Overview
 
@@ -10,7 +10,6 @@ A modern Warhammer Fantasy character generator and campaign toolkit.
 
 - **Backend:** Go (Golang)
 - **Frontend:** TypeScript
-- **Tooling:** JetBrains IDEs
 
 ## Development
 
