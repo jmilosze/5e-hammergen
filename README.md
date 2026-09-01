@@ -27,11 +27,44 @@ The Go backend uses a simplified two-layer architecture:
   - Database Driver: [`go.mongodb.org/mongo-driver/v2`](https://go.mongodb.org/mongo-driver/v2)
   - Deployment: GCP Cloud Run as `hammergen`
 - **Frontend:** Vue 3 + TypeScript
+  - Bundler: [Vite](https://vitejs.dev/)
+  - Styling: [Tailwind CSS v4](https://tailwindcss.com/)
+  - Routing: [`vue-router`](https://router.vuejs.org/)
+  - Icons: [`@iconify/vue`](https://iconify.design/)
   - Code Generator: [`openapi-typescript`](https://openapi-ts.dev/) (generates TypeScript interfaces and typed fetch clients)
   - Captcha: [`vue-recaptcha-v3`](https://github.com/AStarStartup/vue-recaptcha-v3)
+  - Testing: [Vitest](https://vitest.dev/)
   - Deployment: Cloudflare Pages
 - **Database:** MongoDB (hosted in a GCP cluster for low-latency access)
 
-## Development
+## Project Structure
 
-*Project structure and setup instructions will be updated as modules are implemented.*
+```
+5e-hammergen/
+├── Makefile                 # Build, generation, and dev automation
+├── docker-compose.yaml      # Local MongoDB container
+├── openapi/
+│   ├── openapi.yaml         # Single source of truth API specification
+│   └── oapi-codegen.yaml    # Go generator configuration
+├── backend/
+│   ├── cmd/server/main.go
+│   ├── internal/
+│   │   ├── web/             # Chi router, oapi handlers, auth, middleware
+│   │   └── service/         # Business logic with MongoDB operations
+│   └── go.mod
+└── frontend/
+    ├── src/
+    │   ├── api/             # Generated OpenAPI types & fetch client
+    │   ├── components/
+    │   ├── views/
+    │   └── main.ts
+    ├── package.json
+    └── vite.config.ts
+```
+
+## Local Development
+
+- **Start Database:** `docker compose up -d`
+- **Generate API Code:** `make gen` (runs `oapi-codegen` and `openapi-typescript`)
+- **Run Backend:** `make dev-backend`
+- **Run Frontend:** `make dev-frontend`
