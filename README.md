@@ -69,3 +69,4 @@ The Go backend uses a simplified two-layer architecture:
 - **Generate API Code:** `make gen` (runs `oapi-codegen` and `openapi-typescript`)
 - **Run Backend:** `make dev-backend`
 - **Run Frontend:** `make dev-frontend`
+- 
