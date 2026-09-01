@@ -15,9 +15,10 @@
   - CORS: [`rs/cors`](https://github.com/rs/cors)
   - JWT Auth: [`golang-jwt/jwt/v5`](https://github.com/golang-jwt/jwt)
   - OAuth2 (Google & GitHub): [`golang.org/x/oauth2`](https://pkg.go.dev/golang.org/x/oauth2)
+  - Transactional Email: [`resend-go/v2`](https://github.com/resend/resend-go)
   - Anti-Abuse: Google reCAPTCHA v3
   - Database Driver: [`go.mongodb.org/mongo-driver/v2`](https://go.mongodb.org/mongo-driver/v2)
-- **Frontend:** Vanilla Vue 3 + TypeScript
+- **Frontend:** Vue 3 + TypeScript
   - Code Generator: [`openapi-typescript`](https://openapi-ts.dev/) (generates TypeScript interfaces and typed fetch clients)
   - Captcha: [`vue-recaptcha-v3`](https://github.com/AStarStartup/vue-recaptcha-v3)
 - **Database:** MongoDB (hosted in a GCP cluster for low-latency access)
