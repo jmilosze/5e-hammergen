@@ -18,11 +18,12 @@
   - Transactional Email: [`resend-go/v2`](https://github.com/resend/resend-go)
   - Anti-Abuse: Google reCAPTCHA v3
   - Database Driver: [`go.mongodb.org/mongo-driver/v2`](https://go.mongodb.org/mongo-driver/v2)
+  - Deployment: GCP Cloud Run as `hammergen`
 - **Frontend:** Vue 3 + TypeScript
   - Code Generator: [`openapi-typescript`](https://openapi-ts.dev/) (generates TypeScript interfaces and typed fetch clients)
   - Captcha: [`vue-recaptcha-v3`](https://github.com/AStarStartup/vue-recaptcha-v3)
+  - Deployment: Cloudflare Pages
 - **Database:** MongoDB (hosted in a GCP cluster for low-latency access)
-- **Deployment:** GCP Cloud Run as `hammergen`
 
 ## Development
 
