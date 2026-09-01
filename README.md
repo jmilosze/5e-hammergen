@@ -6,6 +6,12 @@
 
 **5e-hammergen** is the next iteration of [wfrp-hammergen](https://github.com/jmilosze/wfrp-hammergen), rebuilt with a modern stack for fast, intuitive, and rich character creation and rule management.
 
+## Architecture
+
+The Go backend uses a simplified two-layer architecture:
+1. **Web Layer:** HTTP routing via Chi, OpenAPI contract enforcement via `oapi-codegen`, authentication (JWT/OAuth2), reCAPTCHA verification, and response serialization.
+2. **Service Layer:** Business domain logic with embedded MongoDB data access, eliminating unnecessary database abstraction interfaces.
+
 ## Tech Stack & Infrastructure
 
 - **API Contract:** OpenAPI 3.0+ YAML specification (single source of truth)
