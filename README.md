@@ -6,10 +6,12 @@
 
 **5e-hammergen** is the next iteration of [wfrp-hammergen](https://github.com/jmilosze/wfrp-hammergen), rebuilt with a modern stack for fast, intuitive, and rich character creation and rule management.
 
-## Tech Stack
+## Tech Stack & Infrastructure
 
 - **Backend:** Go (Golang)
 - **Frontend:** TypeScript
+- **Database:** MongoDB (hosted in a GCP cluster for low-latency access)
+- **Deployment:** GCP Cloud Run as `hammergen`
 
 ## Development
 
